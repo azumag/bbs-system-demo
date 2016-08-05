@@ -11,3 +11,13 @@ post
 </div>
 
 <%end%>
+
+<hr>
+<% @posts.each do |post| %>
+
+<div>
+  <%= post.user.name %> says:
+  <%= post.text%>
+</div>
+
+<% end %>
