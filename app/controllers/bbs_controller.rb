@@ -1,5 +1,20 @@
 class BbsController < ApplicationController
   def index
-    #fix 
+    #fix
   end
+
+  def create
+    name = params[:name]
+    post = params[:text]
+
+    user = User.find_or_create_by(name: name)
+    post = Post.create(text: post)
+
+    user.posts << post
+    user.save
+
+    render action: :index
+
+  end
+
 end
