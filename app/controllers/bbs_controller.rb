@@ -1,6 +1,6 @@
 class BbsController < ApplicationController
   def index
-    #fix
+    @posts = Post.all()
   end
 
   def create
@@ -12,6 +12,8 @@ class BbsController < ApplicationController
 
     user.posts << post
     user.save
+
+    @posts = Post.all()
 
     render action: :index
 
